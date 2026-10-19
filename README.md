@@ -7,6 +7,39 @@ A subscriber authorizes a spending cap and a billing interval **once**. A
 merchant can then pull a fixed amount each interval, but **never more than
 authorized** and **never after the subscriber cancels**.
 
+## Table of Contents
+
+- [Try it in ten minutes](#try-it-in-ten-minutes)
+- [The security model](#the-security-model)
+- [Contracts](#contracts)
+- [Quick start](#quick-start)
+- [Layout](#layout)
+- [Deployments](#deployments)
+- [Sister repositories](#sister-repositories)
+- [Contributing](#contributing)
+
+## Try it in ten minutes
+
+1. **Clone and test:**
+```bash
+   git clone https://github.com/stellar-sub/stellar-subscriptions-contracts
+   cd stellar-subscriptions-contracts
+   make test
+```
+
+2. **Read an invariant test:**
+   Open `contracts/subscription/src/test/invariant_cap.rs` to see how the contract enforces "never charge more than authorized."
+
+3. **Verify on Testnet:**
+```bash
+   DEMO=1 make deploy
+   make verify
+```
+
+**Next:** See [CONTRIBUTING.md](CONTRIBUTING.md) to add features without weakening the invariants.
+
+---
+
 ## The security model
 
 The subscriber grants a bounded, revocable authorization; the merchant pulls
